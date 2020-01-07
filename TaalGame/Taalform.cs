@@ -4,15 +4,18 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Linq;
 using System.Media;
+using System.IO.Ports;
 
 namespace TaalGame
 {
     public partial class Taalform : Form
     {
+        //static SerialPort usedPort = new SerialPort("COM3",9600, Parity.None,8, StopBits.One);
         private List<Question> StamQuestions = new List<Question>();
         private List<Question> StateQuestions = new List<Question>();
         private List<Question> currentQuestions { get; set; }
-        
+
+        //Messages messages = new Messages(usedPort);
         Random rnd = new Random();
         public int numberQuestion;
         private int score;
@@ -21,6 +24,15 @@ namespace TaalGame
         {
             InitializeComponent();
             currentQuestions = StamQuestions;
+
+            SerialPort Port = new SerialPort("COM4", 9600);
+            Port.Open();
+
+            while (true)
+            {
+                string data = Port.ReadLine();
+                label1.Text = data;
+            }
         }
 
         public void Form1_Load(object sender, EventArgs e)
@@ -114,27 +126,8 @@ namespace TaalGame
             SetUI();
         }
 
-        private void Taalform_KeyUp(object sender, KeyEventArgs e)
+        private void CheckSignal_Tick(object sender, EventArgs e)
         {
-            switch (e.KeyCode)
-            {
-                case Keys.A:
-                    e.Handled = true;
-                    AnswerA.PerformClick();
-                    break;
-                case Keys.B:
-                    e.Handled = true;
-                    AnswerB.PerformClick();
-                    break;
-                case Keys.C:
-                    e.Handled = true;
-                    AnswerC.PerformClick();
-                    break;
-                case Keys.D:
-                    e.Handled = true;
-                    AnswerD.PerformClick();
-                    break;
-            }
         }
     }
 }

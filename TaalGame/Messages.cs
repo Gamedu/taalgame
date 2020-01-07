@@ -23,7 +23,6 @@ namespace TaalGame
             int lastindex;
             if (messageHandled == false)
             {
-                incomingData = "";
                 incomingData += poort.ReadLine();
                 firstindex = incomingData.IndexOf('>');
                 lastindex = incomingData.IndexOf('<');
