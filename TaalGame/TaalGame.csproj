@@ -70,6 +70,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Messages.cs" />
     <Compile Include="Taalform.cs">
       <SubType>Form</SubType>
     </Compile>
