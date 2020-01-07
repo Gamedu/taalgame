@@ -10,12 +10,14 @@ namespace TaalGame
 {
     public partial class Taalform : Form
     {
-        //static SerialPort usedPort = new SerialPort("COM3",9600, Parity.None,8, StopBits.One);
+        private List<Question> currentQuestions { get; set; }
         private List<Question> StamQuestions = new List<Question>();
         private List<Question> StateQuestions = new List<Question>();
-        private List<Question> currentQuestions { get; set; }
-
-        //Messages messages = new Messages(usedPort);
+       
+        static SerialPort usedPort = new SerialPort("COM3", 9600, Parity.None, 8, StopBits.One);
+        
+        Messages messages = new Messages(usedPort);
+        
         Random rnd = new Random();
         public int numberQuestion;
         private int score;
@@ -24,15 +26,6 @@ namespace TaalGame
         {
             InitializeComponent();
             currentQuestions = StamQuestions;
-
-            SerialPort Port = new SerialPort("COM4", 9600);
-            Port.Open();
-
-            while (true)
-            {
-                string data = Port.ReadLine();
-                label1.Text = data;
-            }
         }
 
         public void Form1_Load(object sender, EventArgs e)
@@ -63,6 +56,7 @@ namespace TaalGame
             StateQuestions.Add(new Question(questionText: "(Geven) Ik .... Mandy een cadeau.", correctAnswer: "geef", new[] { "geeft", "geef", "geven", "geefd" }));
             #endregion
             SetUI();
+            CheckSignal.Start();
         }
         
         
@@ -128,6 +122,31 @@ namespace TaalGame
 
         private void CheckSignal_Tick(object sender, EventArgs e)
         {
+            messages.Receive(usedPort);
+
+
+            if (messages.extractedData == "A")
+            {
+                AnswerA.PerformClick();
+            }
+
+            if (messages.extractedData == "B")
+            {
+                AnswerB.PerformClick();
+            }
+
+            if (messages.extractedData == "C")
+            {
+                AnswerC.PerformClick();
+            }
+
+            if (messages.extractedData == "D")
+            {
+                AnswerD.PerformClick();
+            }
+
+            messages.clearIncomingData();
+            //SWITCH CASE
         }
     }
 }
