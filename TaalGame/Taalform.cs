@@ -14,7 +14,7 @@ namespace TaalGame
         private List<Question> StamQuestions = new List<Question>();
         private List<Question> StateQuestions = new List<Question>();
        
-        static SerialPort usedPort = new SerialPort("COM3", 9600, Parity.None, 8, StopBits.One);
+        static SerialPort usedPort = new SerialPort("COM8", 9600, Parity.None, 8, StopBits.One);
         Messages messages = new Messages(usedPort);
         
         Random rnd = new Random();
@@ -142,10 +142,10 @@ namespace TaalGame
             if (messages.extractedData == "D")
             {
                 AnswerD.PerformClick();
-            }
+            } 
+
 
             messages.clearIncomingData();
-            //SWITCH CASE
         }
     }
 }
