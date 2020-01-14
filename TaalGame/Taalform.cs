@@ -17,6 +17,7 @@ namespace TaalGame
         private List<Question> StamQuestions = new List<Question>();
         private List<Question> StateQuestions = new List<Question>();
         private List<Question> SubjectQuestions = new List<Question>();
+        private List<Button> answerButtons = new List<Button>();
 
         static SerialPort usedPort = new SerialPort("COM8", 9600, Parity.None, 8, StopBits.One);
         Messages messages = new Messages(usedPort);
@@ -32,6 +33,18 @@ namespace TaalGame
         {
             InitializeComponent();
             currentQuestions = StamQuestions;
+            answerButtons.Add(AnswerA);
+            answerButtons.Add(AnswerB);
+            answerButtons.Add(AnswerC);
+            answerButtons.Add(AnswerD);
+
+            foreach (var button in answerButtons)
+            {
+                button.FlatStyle = FlatStyle.Flat;
+                button.FlatAppearance.BorderColor = BackColor;
+                button.FlatAppearance.MouseOverBackColor = BackColor;
+                button.FlatAppearance.MouseDownBackColor = BackColor;
+            }
         }
 
         public void Form1_Load(object sender, EventArgs e)
@@ -165,7 +178,7 @@ namespace TaalGame
             TextAnswerC.Text = currentQuestions[numberQuestion].Answers[2];
             TextAnswerD.Text = currentQuestions[numberQuestion].Answers[3];
 
-            Score.Text = "Punten : " + score.ToString();
+            ScoreLive.Text = score.ToString();
             messages.clearIncomingData();
             total++;
 
