@@ -9,13 +9,15 @@ namespace TaalGame
 {
     class Messages
     {
-        public string extractedData { get; private set; } = "";
+        public string extractedData { get; set; } = "";
         private string incomingData { get; set; } = "";
-        public bool receivingData { get; set; } = true;
+        //public bool receivingData { get; set; } = true;
         public Messages(SerialPort poort)
+
         {
             poort.Open();
         }
+
         public void Receive(SerialPort poort)
         {
             bool messageHandled = false;
@@ -29,14 +31,11 @@ namespace TaalGame
                 for (int x = firstindex + 1; x < lastindex; x++)
                 {
                     extractedData += incomingData[x];
-
                 }
                 messageHandled = true;
-
             }
-
-
         }
+
         public void clearIncomingData()
         {
             extractedData = "";
