@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TaalGame
 {
-    class TypeScoreModel
+    internal class TypeScoreModel
     {
         public AspNetUser Student { get; set; }
         public int Correct { get; set; }

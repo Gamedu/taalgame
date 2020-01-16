@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO.Ports;
+﻿using System.IO.Ports;
 
 namespace TaalGame
 {
-    class Messages
+    internal class Messages
     {
         public string extractedData { get; set; } = "";
         private string incomingData { get; set; } = "";
-        //public bool receivingData { get; set; } = true;
+
         public Messages(SerialPort poort)
 
         {
@@ -43,6 +38,3 @@ namespace TaalGame
         }
     }
 }
-
-
-
