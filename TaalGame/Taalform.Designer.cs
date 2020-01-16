@@ -46,6 +46,10 @@
             this.ModeSubject = new System.Windows.Forms.Button();
             this.StartTest = new System.Windows.Forms.Button();
             this.ScoreLive = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // CurrentQuestion
@@ -53,7 +57,7 @@
             this.CurrentQuestion.AutoSize = true;
             this.CurrentQuestion.BackColor = System.Drawing.Color.Transparent;
             this.CurrentQuestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.CurrentQuestion.Location = new System.Drawing.Point(490, 47);
+            this.CurrentQuestion.Location = new System.Drawing.Point(343, 43);
             this.CurrentQuestion.Name = "CurrentQuestion";
             this.CurrentQuestion.Size = new System.Drawing.Size(233, 36);
             this.CurrentQuestion.TabIndex = 0;
@@ -78,41 +82,40 @@
             this.AnswerA.Name = "AnswerA";
             this.AnswerA.Size = new System.Drawing.Size(85, 54);
             this.AnswerA.TabIndex = 2;
-            this.AnswerA.Text = "A";
             this.AnswerA.UseVisualStyleBackColor = false;
             this.AnswerA.Click += new System.EventHandler(this.GiveAnswerA);
             // 
             // AnswerB
             // 
-            this.AnswerB.Location = new System.Drawing.Point(706, 260);
+            this.AnswerB.BackColor = System.Drawing.Color.Transparent;
+            this.AnswerB.Location = new System.Drawing.Point(702, 260);
             this.AnswerB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.AnswerB.Name = "AnswerB";
-            this.AnswerB.Size = new System.Drawing.Size(85, 46);
+            this.AnswerB.Size = new System.Drawing.Size(85, 54);
             this.AnswerB.TabIndex = 3;
-            this.AnswerB.Text = "B";
-            this.AnswerB.UseVisualStyleBackColor = true;
+            this.AnswerB.UseVisualStyleBackColor = false;
             this.AnswerB.Click += new System.EventHandler(this.GiveAnswerB);
             // 
             // AnswerC
             // 
-            this.AnswerC.Location = new System.Drawing.Point(228, 503);
+            this.AnswerC.BackColor = System.Drawing.Color.Transparent;
+            this.AnswerC.Location = new System.Drawing.Point(228, 502);
             this.AnswerC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.AnswerC.Name = "AnswerC";
-            this.AnswerC.Size = new System.Drawing.Size(85, 43);
+            this.AnswerC.Size = new System.Drawing.Size(85, 54);
             this.AnswerC.TabIndex = 4;
-            this.AnswerC.Text = "C";
-            this.AnswerC.UseVisualStyleBackColor = true;
+            this.AnswerC.UseVisualStyleBackColor = false;
             this.AnswerC.Click += new System.EventHandler(this.GiveAnswerC);
             // 
             // AnswerD
             // 
-            this.AnswerD.Location = new System.Drawing.Point(706, 502);
+            this.AnswerD.BackColor = System.Drawing.Color.Transparent;
+            this.AnswerD.Location = new System.Drawing.Point(702, 502);
             this.AnswerD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.AnswerD.Name = "AnswerD";
-            this.AnswerD.Size = new System.Drawing.Size(85, 44);
+            this.AnswerD.Size = new System.Drawing.Size(85, 54);
             this.AnswerD.TabIndex = 5;
-            this.AnswerD.Text = "D";
-            this.AnswerD.UseVisualStyleBackColor = true;
+            this.AnswerD.UseVisualStyleBackColor = false;
             this.AnswerD.Click += new System.EventHandler(this.GiveAnswerD);
             // 
             // ModeStam
@@ -143,7 +146,7 @@
             this.TextAnswerA.BackColor = System.Drawing.Color.Transparent;
             this.TextAnswerA.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F);
             this.TextAnswerA.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.TextAnswerA.Location = new System.Drawing.Point(370, 321);
+            this.TextAnswerA.Location = new System.Drawing.Point(231, 316);
             this.TextAnswerA.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.TextAnswerA.Name = "TextAnswerA";
             this.TextAnswerA.Size = new System.Drawing.Size(58, 58);
@@ -156,7 +159,7 @@
             this.TextAnswerB.BackColor = System.Drawing.Color.Transparent;
             this.TextAnswerB.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F);
             this.TextAnswerB.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.TextAnswerB.Location = new System.Drawing.Point(872, 321);
+            this.TextAnswerB.Location = new System.Drawing.Point(701, 316);
             this.TextAnswerB.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.TextAnswerB.Name = "TextAnswerB";
             this.TextAnswerB.Size = new System.Drawing.Size(58, 58);
@@ -169,7 +172,7 @@
             this.TextAnswerC.BackColor = System.Drawing.Color.Transparent;
             this.TextAnswerC.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F);
             this.TextAnswerC.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.TextAnswerC.Location = new System.Drawing.Point(382, 587);
+            this.TextAnswerC.Location = new System.Drawing.Point(231, 558);
             this.TextAnswerC.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.TextAnswerC.Name = "TextAnswerC";
             this.TextAnswerC.Size = new System.Drawing.Size(61, 58);
@@ -182,7 +185,7 @@
             this.TextAnswerD.BackColor = System.Drawing.Color.Transparent;
             this.TextAnswerD.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F);
             this.TextAnswerD.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.TextAnswerD.Location = new System.Drawing.Point(868, 565);
+            this.TextAnswerD.Location = new System.Drawing.Point(701, 558);
             this.TextAnswerD.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.TextAnswerD.Name = "TextAnswerD";
             this.TextAnswerD.Size = new System.Drawing.Size(61, 58);
@@ -225,13 +228,61 @@
             this.ScoreLive.TabIndex = 15;
             this.ScoreLive.Text = "label1";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.label1.Location = new System.Drawing.Point(109, 364);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(36, 39);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "1";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.label2.Location = new System.Drawing.Point(112, 418);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(36, 39);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "2";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.label3.Location = new System.Drawing.Point(111, 472);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(36, 39);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "3";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.label4.Location = new System.Drawing.Point(111, 587);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(36, 39);
+            this.label4.TabIndex = 19;
+            this.label4.Text = "4";
+            // 
             // Taalform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1422, 763);
+            this.ClientSize = new System.Drawing.Size(1417, 763);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.ScoreLive);
             this.Controls.Add(this.StartTest);
             this.Controls.Add(this.ModeSubject);
@@ -275,6 +326,10 @@
         private System.Windows.Forms.Button ModeSubject;
         private System.Windows.Forms.Button StartTest;
         private System.Windows.Forms.Label ScoreLive;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }
 

@@ -33,7 +33,7 @@ namespace TaalGame
             answerButtons.Add(AnswerC);
             answerButtons.Add(AnswerD);
 
-            foreach (var button in answerButtons)
+            foreach (var button in Controls.OfType<Button>())
             {
                 button.FlatStyle = FlatStyle.Flat;
                 button.FlatAppearance.BorderColor = BackColor;
@@ -129,10 +129,11 @@ namespace TaalGame
         {
             if (TextAnswerA.Text == currentQuestions[numberQuestion].CorrectAnswer)
             {
-                CorrectAnswer();
+                correct++;
+                score++;
                 SetUI();
             }
-            if (TextAnswerA.Text != currentQuestions[numberQuestion].CorrectAnswer)
+            else 
             {
                 IncorrectAnswer();
                 SetUI();
@@ -143,10 +144,11 @@ namespace TaalGame
         {
             if (TextAnswerB.Text == currentQuestions[numberQuestion].CorrectAnswer)
             {
-                CorrectAnswer();
+                correct++;
+                score++;
                 SetUI();
             }
-            if (TextAnswerB.Text != currentQuestions[numberQuestion].CorrectAnswer)
+            else
             {
                 IncorrectAnswer();
                 SetUI();
@@ -157,10 +159,11 @@ namespace TaalGame
         {
             if (TextAnswerC.Text == currentQuestions[numberQuestion].CorrectAnswer)
             {
-                CorrectAnswer();
+                correct++;
+                score++;
                 SetUI();
             }
-            if (TextAnswerC.Text != currentQuestions[numberQuestion].CorrectAnswer)
+            else 
             {
                 IncorrectAnswer();
                 SetUI();
@@ -171,10 +174,10 @@ namespace TaalGame
         {
             if (TextAnswerD.Text == currentQuestions[numberQuestion].CorrectAnswer)
             {
-                CorrectAnswer();
-                SetUI();
+                correct++;
+                score++;
             }
-            if (TextAnswerD.Text != currentQuestions[numberQuestion].CorrectAnswer)
+            else 
             {
                 IncorrectAnswer();
                 SetUI();
@@ -193,9 +196,10 @@ namespace TaalGame
 
             ScoreLive.Text = score.ToString();
             messages.clearIncomingData();
+            
             total++;
 
-            using (dbi441943Entities DbContext = new dbi441943Entities())
+          /*  using (dbi441943Entities DbContext = new dbi441943Entities())
             {
                 var getUser = DbContext.AspNetUsers.Where(s => s.Email == "ryanhouben1998@gmail.com").FirstOrDefault();
 
@@ -211,30 +215,19 @@ namespace TaalGame
                 DbContext.LanguageGameScores.Add(newScore);
 
                 DbContext.SaveChanges();
-            }
+            }*/
         }
-
-        private void CorrectAnswer()
-        {
-            correct++;
-            score++;
-        }
-
         private void IncorrectAnswer()
         {
             incorrect++;
             score--;
-
-            if (score < 0)
-            {
-                score = 0;
-            }
         }
 
         private void ChangeToStam(object sender, EventArgs e)
         {
             currentQuestions = StamQuestions;
             correct = 0;
+            score = 0;
             SetUI();
         }
 
@@ -242,6 +235,7 @@ namespace TaalGame
         {
             currentQuestions = StateQuestions;
             correct = 0;
+            score = 0;
             SetUI();
         }
 
@@ -249,6 +243,7 @@ namespace TaalGame
         {
             currentQuestions = SubjectQuestions;
             correct = 0;
+            score = 0;
             SetUI();
         }
 
@@ -289,10 +284,10 @@ namespace TaalGame
                 case "4":
                     StartTest.PerformClick();
                     break;
-            }
+            } 
 
-            /*
-                        if (messages.extractedData == "A")
+            
+                     /*   if (messages.extractedData == "A")
                         {
                             AnswerA.PerformClick();
                         }
@@ -330,7 +325,13 @@ namespace TaalGame
                         if (messages.extractedData == "4")
                         {
                             StartTest.PerformClick();
-                        }*/
+                        } */
+
+                     messages.clearIncomingData();
+                     if (score == -1)
+                     {
+                         score = 0;
+                     }
         }
 
         private void StartTest_Click(object sender, EventArgs e)
@@ -357,6 +358,7 @@ namespace TaalGame
 
             currentQuestions = TestQuestions;
             correct = 0;
+            score = 0;
             SetUI();
         }
     }
